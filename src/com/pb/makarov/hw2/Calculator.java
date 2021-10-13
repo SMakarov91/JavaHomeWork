@@ -14,7 +14,7 @@ public class Calculator {
         System.out.println("Введите второе число: ");
         int operand2 = scan.nextInt();
 
-        System.out.println("Выбирете операцию '+' - сложение, '-' - вычитание, '*' - умножение, '/' - деление: ");
+        System.out.println("Выберите операцию '+' - сложение, '-' - вычитание, '*' - умножение, '/' - деление: ");
         String sign = scan.next();
 
         char op = sign.charAt(0);
