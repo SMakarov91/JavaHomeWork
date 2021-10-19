@@ -19,7 +19,7 @@ public class Calculator {
 
         char op = sign.charAt(0);
 
-        if (operand2 == 0 & op == '/') {
+        if (operand2 == 0 && op == '/') {
             System.out.println("На 0 делить нельзя");
             return;
         } else {
