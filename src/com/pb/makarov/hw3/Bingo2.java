@@ -8,7 +8,7 @@ public class Bingo2 {
         Scanner scan = new Scanner(System.in);
 
         int hidNum = (int) (Math.random() * 101);
-        int entNum=0;
+        int entNum = -1;
         int counter;
 
         for (counter = 0; hidNum != entNum; counter++) {
