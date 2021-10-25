@@ -1,7 +1,5 @@
 package com.pb.makarov.hw4;
 
-import javafx.beans.binding.StringBinding;
-
 import java.util.Scanner;
 
 public class CapitalLetter {
