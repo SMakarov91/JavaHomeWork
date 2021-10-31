@@ -20,10 +20,6 @@ public class Reader {
         this.phone = phone;
     }
 
-    public String getFio() {
-        return fio;
-    }
-
     public int getBookTakeCnt() {
         return bookTakeCnt;
     }
