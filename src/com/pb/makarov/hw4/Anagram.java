@@ -9,6 +9,7 @@ public class Anagram {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите строку: ");
         String str = scan.nextLine().toLowerCase().replaceAll("[^а-яa-zіїє]", "");
+        //// str = str.replaceAll("[^\\p{L}]", "");
 
         return str;
     }
