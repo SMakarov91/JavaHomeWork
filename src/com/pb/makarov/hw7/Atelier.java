@@ -8,7 +8,7 @@ public class Atelier {
         Clothes pants = new Pants(Size.S, 550, "синий");
         Clothes skirt = new Skirt(Size.M, 450, "черный");
         Clothes tie = new Tie(Size.L, 250, "зеленый");
-//----
+
         Clothes[] clothes = new Clothes[]{tshirt, pants, skirt, tie};
         dressMan(clothes);
         dressWomen(clothes);
