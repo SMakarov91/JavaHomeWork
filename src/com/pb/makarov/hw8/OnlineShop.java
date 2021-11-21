@@ -33,10 +33,11 @@ public class OnlineShop {
                 System.out.println(e.getMessage());
             }
 
-        } catch (Exception e) {
+        } catch (WrongLoginException|WrongPasswordException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
             System.out.println("Регистрация не пройдена");
         }
+
     }
 }
