@@ -6,7 +6,7 @@ public class Auth {
     private String password;
 
     //Регистрация
-    public void signUp(String login, String password, String confirmPassword) throws Exception {
+    public void signUp(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
         if (!login.matches("^[a-zA-Z0-9]{5,20}$")) {
             throw new WrongLoginException("Логин не соответствует требованиям: от 5 до 20 символов, только латинские буквы и цифры");
         } else if (password.length() < 5) {
