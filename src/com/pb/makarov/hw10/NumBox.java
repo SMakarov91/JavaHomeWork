@@ -32,15 +32,7 @@ public class NumBox<T extends Number> {
     }
 
     public double average() {
-        double average = 0;
-        int j = 0;
-        for (int i = 0; i < number.length; i++) {
-            if (number[i] != null) {
-                average += number[i].doubleValue();
-                j++;
-            }
-        }
-        return average / j;
+        return sum() / length();
     }
 
     public double sum() {
