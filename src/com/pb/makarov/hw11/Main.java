@@ -105,7 +105,7 @@ public class Main {
                     break;
 
                 case "8":
-                    FileWriter file = new FileWriter("phoneBook.txt");
+                    FileWriter file = new FileWriter("phoneBook.json");
                     phoneBookJson = mapper.writeValueAsString(phoneBookList);
                     file.append(phoneBookJson);
                     file.flush();
@@ -115,7 +115,7 @@ public class Main {
                     break;
 
                 case "9":
-                    phoneBookList = new ArrayList<>(Arrays.asList(mapper.readValue(Paths.get("phoneBook.txt").toFile(), PhoneBook[].class)));
+                    phoneBookList = new ArrayList<>(Arrays.asList(mapper.readValue(Paths.get("phoneBook.json").toFile(), PhoneBook[].class)));
                     phoneBookJson = mapper.writeValueAsString(phoneBookList);
                     System.out.println(phoneBookJson);
                     break;
