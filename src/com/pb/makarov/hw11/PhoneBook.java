@@ -66,4 +66,14 @@ public class PhoneBook {
         this.mod = mod;
     }
 
+    @Override
+    public String toString() {
+        return "PhoneBook{" +
+                "fio='" + fio + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", mod=" + mod +
+                '}';
+    }
 }
