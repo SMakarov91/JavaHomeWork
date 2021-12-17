@@ -16,7 +16,7 @@ public class Main {
 
         System.out.println("Число по индексу [2] - " + objInt.get(2));
         System.out.println("Текущее количество элементов " + objInt.length());
-        System.out.println("Cреднее арифметического среди элементов массива " + objInt.average());
+        System.out.println("Cреднее арифметическое элементов массива " + objInt.average());
         System.out.println("Сумма всех элементов массива " + objInt.sum());
         System.out.println("Максимальный элемент массива " + objInt.max());
 

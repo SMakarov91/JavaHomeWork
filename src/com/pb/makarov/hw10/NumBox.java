@@ -11,11 +11,11 @@ public class NumBox<T extends Number> {
     }
 
     void add(T t) throws Exception {
-        if (this.index >= this.number.length) {
+        if (index >= number.length) {
             throw new Exception("Массив уже заполнен!");
         }
-        this.number[this.index] = t;
-        this.index++;
+        number[index] = t;
+        index++;
     }
 
     public T get(int index) {

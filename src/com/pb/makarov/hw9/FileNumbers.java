@@ -21,9 +21,9 @@ public class FileNumbers {
             for (int i = 0; i < array.length; i++) {
                 if (i % 10 == 0 && i != 0) {
                     writer.newLine();
-                    writer.write(array[i] + " ");
-                } else
-                    writer.write(array[i] + " ");
+                }
+                writer.write(array[i] + " ");
+                //writer.write(String.valueOf(array[i]) + " "); //конверт в String
             }
 
         } catch (Exception ex) {
