@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -12,6 +13,7 @@ public class Server {
 
     static class Handler implements Runnable {
         private final Socket clientSocket;
+        private static final DateTimeFormatter CHANGE_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         public Handler(Socket clientSocket) {
             this.clientSocket = clientSocket;
@@ -28,9 +30,10 @@ public class Server {
                 System.out.println("Ожидаем сообщений");
                 while ((clientMessage = in.readLine()) != null) {
                     if ("exit".equalsIgnoreCase(clientMessage)) {
+                        System.out.println("Отключился " + Thread.currentThread().getName());
                         break;
                     }
-                    out.println("Сервер: " + LocalDateTime.now().withNano(0) + " "  + clientMessage);
+                    out.println("Сервер: " + LocalDateTime.now().format(CHANGE_TIME_FORMAT) + " "  + clientMessage);
                     System.out.println(Thread.currentThread().getName() + " " + clientMessage);
                 }
 
