@@ -30,7 +30,7 @@ public class Client {
         }
         outServer.close();
         inServer.close();
-        outServer.close();
+        inConsole.close();
         server.close();
     }
 }
