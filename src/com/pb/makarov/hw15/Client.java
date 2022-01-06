@@ -5,14 +5,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Client extends JFrame {
     private static final String serverIp = "127.0.0.1";
     private static final int serverPort = 1234;
 
     private Socket server;
-    private Scanner inMsg;
+    private BufferedReader inMsg;
     private PrintWriter outMsg;
 
     private JTextArea jtAreaMessage;
@@ -21,11 +20,12 @@ public class Client extends JFrame {
     public Client() {
         try {
             server = new Socket(serverIp, serverPort);
-            inMsg = new Scanner(server.getInputStream());
-            outMsg = new PrintWriter(server.getOutputStream());
+            inMsg = new BufferedReader(new InputStreamReader(server.getInputStream()));
+            outMsg = new PrintWriter(server.getOutputStream(), true);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         setBounds(600, 300, 600, 500);
         setTitle("Client");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -55,13 +55,10 @@ public class Client extends JFrame {
             @Override
             public void run() {
                 try {
-                    while (true) {
-                        if (inMsg.hasNext()) {
-                            String inMes = inMsg.nextLine();
-
-                            jtAreaMessage.append(inMes);
-                            jtAreaMessage.append("\n");
-                        }
+                    String dataFromServer;
+                    while ((dataFromServer = inMsg.readLine()) != null) {
+                        jtAreaMessage.append(dataFromServer);
+                        jtAreaMessage.append("\n");
                     }
                 } catch (Exception e) {
                 }
@@ -74,7 +71,6 @@ public class Client extends JFrame {
                 super.windowClosing(e);
                 try {
                     outMsg.println("Отключился");
-                    outMsg.flush();
                     outMsg.close();
                     inMsg.close();
                     server.close();
@@ -82,13 +78,13 @@ public class Client extends JFrame {
                 }
             }
         });
+
         setVisible(true);
     }
 
     public void sendMsg() {
         String messageStr = jtfMessage.getText();
         outMsg.println(messageStr);
-        outMsg.flush();
         jtfMessage.setText("");
     }
 }
